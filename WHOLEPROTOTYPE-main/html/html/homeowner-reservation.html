@@ -1,0 +1,194 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Facility Reservation | Casa Milan</title>
+	<link rel="stylesheet" href="../../css/css/homeownerpage.css">
+	<link rel="stylesheet" href="../../css/css/homeowner-reservation.css">
+	<link rel="stylesheet" href="../../css/css/homeowner-profile.css">
+</head>
+<body>
+	<header class="topbar">
+		<div class="topbar-inner">
+			<a class="brand reservation-brand" href="homeowner.html" aria-label="Casa Milan Resident Portal">
+				<span class="brand-name">Casa Milan</span>
+				<span class="brand-subtitle">Resident Portal</span>
+			</a>
+			<div class="account">
+				<span class="icon-button" aria-label="Notifications">
+					<svg viewBox="0 0 24 24" width="19" height="19" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M18 9a6 6 0 0 0-12 0c0 7-3 7-3 9h18c0-2-3-2-3-9M10 21h4"/></svg>
+					<span class="notification-dot"></span>
+				</span>
+				<button class="profile-trigger" id="profileTrigger" type="button" aria-label="Open profile" aria-haspopup="dialog" aria-controls="profileDialog" aria-expanded="false">
+					<span class="avatar" aria-hidden="true">
+						<svg viewBox="0 0 20 20" width="15" height="15" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="10" cy="6.5" r="3"/><path d="M4.5 16c.5-3 2.5-4.5 5.5-4.5s5 1.5 5.5 4.5"/></svg>
+					</span>
+					<span class="profile-name">Joe Doe</span>
+				</button>
+				<button class="logout" id="logoutBtn" type="button" aria-label="Sign out">
+					<svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M10 4H5v16h5M14 8l4 4-4 4M8 12h10"/></svg>
+				</button>
+			</div>
+		</div>
+	</header>
+
+	<nav class="main-nav" aria-label="Main navigation">
+		<div class="nav-inner">
+			<a class="nav-link" href="homeowner.html">Home</a>
+			<a class="nav-link" href="homeowner-announcements.html">Announcements</a>
+			<a class="nav-link" href="homeowner-reservation.html" aria-current="page">Reservation Page</a>
+			<a class="nav-link" href="statement-of-account.html">Pay Monthly Dues</a>
+		</div>
+	</nav>
+
+	<main class="resident-reservation">
+		<div class="reservation-workflow">
+			<div class="reservation-primary">
+				<section aria-labelledby="facility-step-title">
+					<h1 class="step-heading" id="facility-step-title">1. Select Facility</h1>
+					<div class="facility-picker" id="facilityPicker" aria-label="Choose a facility"></div>
+				</section>
+
+				<section class="availability-section" aria-labelledby="availability-title">
+					<h2 class="step-heading" id="availability-title">1. Select a Date and Available Time Slots</h2>
+					<div class="facility-detail">
+						<img class="facility-photo" id="facilityPhoto" src="images/badminton_court.jpg" alt="Badminton Court">
+						<div class="facility-information">
+							<h3 id="facilityName">Badminton Court</h3>
+							<div class="detail-block" id="facilityRateBlock">
+								<h4><span class="detail-icon" aria-hidden="true">₱</span> Rate</h4>
+								<ul id="facilityRates"></ul>
+							</div>
+							<div class="detail-block" id="facilityOperationBlock">
+								<h4><span class="detail-icon" aria-hidden="true">◷</span> Operation Time</h4>
+								<p>8:00 AM to 10:00 PM</p>
+							</div>
+							<div class="detail-block" id="facilityPolicyBlock">
+								<h4><span class="detail-icon" aria-hidden="true">i</span> Policies</h4>
+								<ol>
+									<li>Cancellation Policy</li>
+									<li>Rescheduling Policy</li>
+									<li>Late Arrival Policy</li>
+								</ol>
+							</div>
+							<div class="main-hall-details" id="mainHallDetails" hidden>
+								<p>Need assistance? Contact us.</p>
+								<div class="main-hall-rate">
+									<strong>Exclusive Swimming (Day Time)</strong>
+									<b>PHP 25,000</b>
+									<small>(Inclusive of Caterer's Fee and Audio Electricity Fee)</small>
+								</div>
+								<div class="main-hall-rate">
+									<strong>Exclusive Swimming (Night Time)</strong>
+									<b>PHP 30,000</b>
+									<small>(Inclusive of Caterer's Fee and Audio Electricity Fee)</small>
+								</div>
+								<div class="main-hall-rate">
+									<strong>Poolside (No Swimming)</strong>
+									<b>PHP 25,000</b>
+									<small>(Inclusive of Caterer's Fee and Audio Electricity Fee)</small>
+								</div>
+								<h4>Other Charges</h4>
+								<div class="main-hall-charge">
+									<strong>Terrace</strong>
+									<b>PHP 2,500</b>
+								</div>
+								<div class="main-hall-charge">
+									<strong>LED Wall</strong>
+									<b>PHP 2,500</b>
+								</div>
+							</div>
+							<div class="booking-controls" id="bookingControls" hidden>
+								<label for="bookingDate">Date</label>
+								<input id="bookingDate" type="date">
+								<div class="time-slot-list" id="timeSlotList" aria-label="Available time slots"></div>
+								<fieldset class="payment-method" id="paymentMethodGroup">
+									<legend>Mode of Payment</legend>
+									<label><input type="radio" name="paymentMethod" value="Card"> Card</label>
+									<label><input type="radio" name="paymentMethod" value="E-wallets"> E-wallets</label>
+								</fieldset>
+							</div>
+							<div class="facility-actions" id="facilityActions">
+								<p class="booking-message" id="bookingMessage" role="status"></p>
+								<button class="continue-button" id="continueButton" type="button">Continue</button>
+								<button class="continue-button" id="bookButton" type="button" hidden>Book Facility</button>
+							</div>
+						</div>
+					</div>
+				</section>
+			</div>
+
+			<aside class="my-bookings" aria-labelledby="my-bookings-title">
+				<h2 id="my-bookings-title">My Bookings</h2>
+				<div class="booking-list" id="bookingList" aria-live="polite"></div>
+			</aside>
+		</div>
+	</main>
+
+	<dialog class="booking-dialog" id="bookingDetailsDialog" aria-labelledby="bookingDetailsTitle">
+		<div class="booking-dialog-header">
+			<h2 id="bookingDetailsTitle">Booking details</h2>
+			<form method="dialog"><button class="booking-dialog-close" type="submit" aria-label="Close booking details">×</button></form>
+		</div>
+		<dl class="booking-detail-list">
+			<div><dt>Facility</dt><dd id="bookingDetailFacility"></dd></div>
+			<div><dt>Date</dt><dd id="bookingDetailDate"></dd></div>
+			<div><dt>Time</dt><dd id="bookingDetailTime"></dd></div>
+			<div><dt>Status</dt><dd id="bookingDetailStatus"></dd></div>
+			<div><dt>Payment method</dt><dd id="bookingDetailPayment"></dd></div>
+		</dl>
+		<div class="booking-dialog-actions">
+			<button class="booking-cancel-trigger" id="bookingCancelTrigger" type="button">Cancel Reservation</button>
+		</div>
+	</dialog>
+
+	<dialog class="booking-dialog booking-confirm-dialog" id="cancelBookingDialog" aria-labelledby="cancelBookingTitle">
+		<h2 id="cancelBookingTitle">Cancel reservation?</h2>
+		<p>Are you sure you want to cancel the reservation?</p>
+		<p class="booking-cancel-error" id="bookingCancelError" role="alert"></p>
+		<div class="booking-dialog-actions">
+			<form method="dialog"><button class="booking-keep-button" type="submit">Keep Reservation</button></form>
+			<button class="booking-cancel-confirm" id="confirmBookingCancel" type="button">Yes, Cancel Reservation</button>
+		</div>
+	</dialog>
+
+	<dialog class="profile-dialog" id="profileDialog" aria-labelledby="profileDialogTitle">
+		<div class="profile-dialog-header">
+			<h2 id="profileDialogTitle">Personal Information</h2>
+			<button class="profile-close" id="profileClose" type="button" aria-label="Close profile">×</button>
+		</div>
+		<div class="profile-summary">
+			<span class="profile-large-avatar" aria-hidden="true">
+				<svg viewBox="0 0 52 52" width="52" height="52" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="26" cy="17" r="9"/><path d="M9 43v-4c0-7 6-11 17-11s17 4 17 11v4"/></svg>
+			</span>
+			<strong class="profile-name-display">Joe Doe</strong>
+		</div>
+		<div class="profile-options">
+			<button class="profile-option" type="button">
+				<svg viewBox="0 0 24 24" width="23" height="23" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><circle cx="12" cy="7" r="3.5"/><path d="M4.5 21v-2a7.5 7.5 0 0 1 15 0v2"/></svg>
+				<span>Personal Information</span>
+				<svg class="profile-option-arrow" viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M4 12h15M13 6l6 6-6 6"/></svg>
+			</button>
+			<button class="profile-option" type="button">
+				<svg viewBox="0 0 24 24" width="23" height="23" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M12 8.5a3.5 3.5 0 1 0 0 7 3.5 3.5 0 0 0 0-7Z"/><path d="m19.4 15 .1.1a1.8 1.8 0 0 1-2.5 2.5l-.1-.1a1.8 1.8 0 0 0-3 .9v.2a1.8 1.8 0 0 1-3.6 0v-.2a1.8 1.8 0 0 0-3-.9l-.1.1a1.8 1.8 0 0 1-2.5-2.5l.1-.1a1.8 1.8 0 0 0-.9-3h-.2a1.8 1.8 0 0 1 0-3.6h.2a1.8 1.8 0 0 0 .9-3l-.1-.1a1.8 1.8 0 0 1 2.5-2.5l.1.1a1.8 1.8 0 0 0 3-.9v-.2a1.8 1.8 0 0 1 3.6 0v.2a1.8 1.8 0 0 0 3 .9l.1-.1a1.8 1.8 0 0 1 2.5 2.5l-.1.1a1.8 1.8 0 0 0 .9 3h.2a1.8 1.8 0 0 1 0 3.6h-.2a1.8 1.8 0 0 0-.9 3Z"/></svg>
+				<span>Change Password</span>
+				<svg class="profile-option-arrow" viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M4 12h15M13 6l6 6-6 6"/></svg>
+			</button>
+		</div>
+	</dialog>
+
+	<dialog class="logout-dialog" id="logoutDialog" aria-labelledby="logoutDialogTitle">
+		<h2 id="logoutDialogTitle">Log out?</h2>
+		<p>Are you sure you want to log out?</p>
+		<div class="logout-dialog-actions">
+			<form method="dialog"><button class="logout-cancel" type="submit">Cancel</button></form>
+			<button class="logout-confirm" id="confirmLogout" type="button">Log out</button>
+		</div>
+	</dialog>
+
+	<script src="../../js/js/homeowner-reservation.js" defer></script>
+	<script src="../../js/js/homeowner-profile.js" defer></script>
+	<script src="../../js/js/homeowner-personal-info.js" defer></script>
+</body>
+</html>
